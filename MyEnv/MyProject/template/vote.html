@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Voting</title>
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            form {
+                background: #ffffff;
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                width: 320px;
+                text-align: center;
+            }
+
+            p {
+                font-size: 18px;
+                font-weight: bold;
+                color: #28a745;
+                margin-bottom: 15px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 16px;
+                outline: none;
+            }
+
+            input[type="text"]:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            }
+
+            button {
+                background: #ff6600;
+                color: white;
+                border: none;
+                padding: 12px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 6px;
+                width: 100%;
+                transition: 0.3s;
+            }
+
+            button:hover {
+                background: #e65c00;
+            }
+
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/vote" method="post">
+            {% csrf_token %}
+            <p>{{success}}</p>
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <div class="button-container">
+                <button type="submit" name="vote">Vote</button>
+                <button type="submit" name="back">Back</button>
+            </div>
+        </form>
+    </body>
+</html>

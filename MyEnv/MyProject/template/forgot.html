@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>forgot password</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            form {
+                background: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 300px;
+                text-align: center;
+            }
+
+            label {
+                display: block;
+                font-size: 16px;
+                font-weight: bold;
+                text-align: left;
+                margin: 10px 0;
+            }
+
+            input[type="email"],
+            input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin-top: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+            button {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            p {
+                font-size: 16px;
+                color: #28a745;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/forgot" method="post">
+            {% csrf_token %}
+            <label>Enter the emai:   <input type="email" name="email"></label>
+            <label>Enter the new password
+            <input type="password" name="password" placeholder="Enter the password"/></label><br>
+            {{a}}
+            <button type="submit" name="submit">submit</button><br>
+            <button type="submit" name="back">back</button>
+        </form>
+    </body>
+</html>
